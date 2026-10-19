@@ -8,7 +8,7 @@ class NamedForm(forms.ModelForm):
         name = self.cleaned_data['name'].strip()
         if len(name) < 2:
             raise forms.ValidationError('Введите название длиной не менее 2 символов.')
-        if self._meta.model.objects.filter(name__iexact=name).exists():
+        if self._meta.model.objects.filter(name__iexact=name).exclude(pk=self.instance.pk).exists():
             raise forms.ValidationError('Запись с таким названием уже существует.')
         return name
 
@@ -43,7 +43,7 @@ class GameDetailsForm(forms.ModelForm):
 
     def clean_game(self):
         game = self.cleaned_data['game']
-        if GameDetails.objects.filter(game=game).exists():
+        if GameDetails.objects.filter(game=game).exclude(pk=self.instance.pk).exists():
             raise forms.ValidationError('Для этой игры характеристики уже добавлены.')
         return game
 
@@ -64,6 +64,6 @@ class GameCategoryForm(forms.ModelForm):
     def clean(self):
         data = super().clean()
         if data.get('game') and data.get('category'):
-            if GameCategory.objects.filter(game=data['game'], category=data['category']).exists():
+            if GameCategory.objects.filter(game=data['game'], category=data['category']).exclude(pk=self.instance.pk).exists():
                 raise forms.ValidationError('Эта игра уже входит в выбранную категорию.')
         return data

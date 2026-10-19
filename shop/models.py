@@ -8,6 +8,10 @@ class Publisher(models.Model):
                             validators=[MinLengthValidator(2)])
     email = models.EmailField('Email')
 
+    class Meta:
+        verbose_name = 'Издатель'
+        verbose_name_plural = 'Издатели'
+
     def __str__(self):
         return self.name
 
@@ -15,6 +19,10 @@ class Publisher(models.Model):
 class Category(models.Model):
     name = models.CharField('Название категории', max_length=80, unique=True,
                             validators=[MinLengthValidator(2)])
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
     def __str__(self):
         return self.name
@@ -30,6 +38,10 @@ class Game(models.Model):
     categories = models.ManyToManyField(Category, through='GameCategory',
                                         related_name='games', verbose_name='Категории')
 
+    class Meta:
+        verbose_name = 'Настольная игра'
+        verbose_name_plural = 'Настольные игры'
+
     def __str__(self):
         return self.name
 
@@ -44,6 +56,10 @@ class GameDetails(models.Model):
     duration = models.PositiveSmallIntegerField('Длительность, мин.',
                         validators=[MinValueValidator(1), MaxValueValidator(1440)])
 
+    class Meta:
+        verbose_name = 'Характеристика игры'
+        verbose_name_plural = 'Характеристики игр'
+
     def __str__(self):
         return str(self.game)
 
@@ -53,6 +69,8 @@ class GameCategory(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
 
     class Meta:
+        verbose_name = 'Связь игры с категорией'
+        verbose_name_plural = 'Связи игр с категориями'
         constraints = [models.UniqueConstraint(fields=['game', 'category'],
                                                name='unique_game_category')]
 
