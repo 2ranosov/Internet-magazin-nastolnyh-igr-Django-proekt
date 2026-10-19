@@ -66,3 +66,16 @@ main {
     border-radius: 6px;
     background: white;
 }
+
+form { max-width: 450px; margin-bottom: 30px; }
+.form-field { margin-bottom: 14px; }
+label { display: block; margin-bottom: 4px; }
+input, select, button { font: inherit; padding: 8px; }
+input, select { width: 100%; border: 1px solid #7a897e; border-radius: 4px; }
+button { background: #305b43; color: white; border: 0; border-radius: 4px; cursor: pointer; }
+.error, .errorlist { color: #a01818; }
+.errorlist { margin: 5px 0; padding-left: 20px; }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: white; }
+th, td { padding: 10px; border: 1px solid #ccd5c7; text-align: left; }
+th { background: #e2ebd8; }

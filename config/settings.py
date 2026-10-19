@@ -6,7 +6,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '[::1]']
 
 INSTALLED_APPS = ['django.contrib.staticfiles', 'shop']
-MIDDLEWARE = ['django.middleware.common.CommonMiddleware']
+MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+]
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 

@@ -1,0 +1,14 @@
+{% extends 'shop/base.html' %}
+{% block title %}Игры и категории{% endblock %}
+{% block content %}
+<h1>Игры и категории</h1>
+<p>Сначала создайте игру и категорию. Одна игра может входить в несколько категорий, а категория — содержать несколько игр.</p>
+{% include 'shop/includes/form.html' %}
+<h2>Все записи</h2>
+{% if records %}
+<div class="table-scroll"><table>
+    <thead><tr><th>Игра</th><th>Категория</th></tr></thead>
+    <tbody>{% for item in records %}<tr><td>{{ item.game }}</td><td>{{ item.category }}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% else %}<p>Записей пока нет. Добавьте первую запись через форму выше.</p>{% endif %}
+{% endblock %}

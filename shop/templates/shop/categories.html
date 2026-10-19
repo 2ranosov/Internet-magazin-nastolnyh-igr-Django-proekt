@@ -1,0 +1,14 @@
+{% extends 'shop/base.html' %}
+{% block title %}Категории{% endblock %}
+{% block content %}
+<h1>Категории</h1>
+<p>Создайте категории, а затем назначьте их играм на странице «Игры и категории».</p>
+{% include 'shop/includes/form.html' %}
+<h2>Все записи</h2>
+{% if records %}
+<div class="table-scroll"><table>
+    <thead><tr><th>Категория</th></tr></thead>
+    <tbody>{% for item in records %}<tr><td>{{ item.name }}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% else %}<p>Записей пока нет. Добавьте первую запись через форму выше.</p>{% endif %}
+{% endblock %}

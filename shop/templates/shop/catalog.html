@@ -1,17 +1,14 @@
 {% extends 'shop/base.html' %}
-
-{% block title %}Каталог{% endblock %}
-
+{% block title %}Каталог игр{% endblock %}
 {% block content %}
-    <h1>Каталог игр</h1>
-    <div class="catalog">
-        {% for game in games %}
-            <article class="card">
-                <h2>{{ game.name }}</h2>
-                <p>{{ game.description }}</p>
-                <p><strong>{{ game.price }} ₽</strong></p>
-            </article>
-        {% endfor %}
-    </div>
-    <p>Цены приведены для примера. Покупки на учебном сайте не оформляются.</p>
+<h1>Каталог игр</h1>
+<p>Перед добавлением игры создайте издателя. Цены указаны в рублях.</p>
+{% include 'shop/includes/form.html' %}
+<h2>Все записи</h2>
+{% if records %}
+<div class="table-scroll"><table>
+    <thead><tr><th>Игра</th><th>Издатель</th><th>Цена</th><th>Категории</th></tr></thead>
+    <tbody>{% for item in records %}<tr><td>{{ item.name }}</td><td>{{ item.publisher }}</td><td>{{ item.price }}</td><td>{% for category in item.categories.all %}{{ category.name }}{% if not forloop.last %}, {% endif %}{% empty %}Не назначены{% endfor %}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% else %}<p>Записей пока нет. Добавьте первую запись через форму выше.</p>{% endif %}
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'shop/base.html' %}
+{% block title %}Характеристики игр{% endblock %}
+{% block content %}
+<h1>Характеристики игр</h1>
+<p>Сначала добавьте игру в каталог. Для каждой игры можно создать только одну запись характеристик.</p>
+{% include 'shop/includes/form.html' %}
+<h2>Все записи</h2>
+{% if records %}
+<div class="table-scroll"><table>
+    <thead><tr><th>Игра</th><th>Минимум игроков</th><th>Максимум игроков</th><th>Минуты</th></tr></thead>
+    <tbody>{% for item in records %}<tr><td>{{ item.game }}</td><td>{{ item.min_players }}</td><td>{{ item.max_players }}</td><td>{{ item.duration }}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% else %}<p>Записей пока нет. Добавьте первую запись через форму выше.</p>{% endif %}
+{% endblock %}
