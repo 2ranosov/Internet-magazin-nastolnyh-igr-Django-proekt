@@ -68,4 +68,4 @@ python manage.py runserver
 
 ## Практическая работа 20 октября 2026 года
 
-+Общая структура находится только в `base.html`. Header и footer вынесены в `includes/header.html` и `includes/footer.html` и подключаются через `{% include %}`. Все три страницы наследуют `base.html`. Единственный файл CSS — `shop/static/shop/css/styles.css`. Встроенных стилей нет. JavaScript в проекте не используется, поэтому переносить JS-код и создавать `script.js` не требуется. Навигация работает обычными ссылками. Актуальный отчёт — `REPORT_refactoring.docx`.
+Общая структура находится только в `base.html`. Header и footer вынесены в `includes/header.html` и `includes/footer.html` и подключаются через `{% include %}`. Все три страницы наследуют `base.html`. Единственный файл CSS — `shop/static/shop/css/styles.css`. Встроенных стилей нет. JavaScript в проекте не используется, поэтому переносить JS-код и создавать `script.js` не требуется. Навигация работает обычными ссылками. Актуальный отчёт — `REPORT_refactoring.docx`.
