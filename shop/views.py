@@ -1,11 +1,18 @@
 from django.shortcuts import render
-from .data import GAMES
+
 
 def home(request):
-    return render(request, 'shop/home.html', {'page': 'home', 'games': GAMES[:3]})
+    return render(request, 'shop/home.html')
+
 
 def catalog(request):
-    return render(request, 'shop/catalog.html', {'page': 'catalog', 'games': GAMES})
+    games = [
+        {'name': 'Шахматы', 'description': 'Классическая игра для двух игроков.', 'price': 1200},
+        {'name': 'Домино', 'description': 'Настольная игра для всей семьи.', 'price': 500},
+        {'name': 'Лото', 'description': 'Игра с бочонками и карточками для компании.', 'price': 800},
+    ]
+    return render(request, 'shop/catalog.html', {'games': games})
+
 
 def about(request):
-    return render(request, 'shop/about.html', {'page': 'about'})
+    return render(request, 'shop/about.html')

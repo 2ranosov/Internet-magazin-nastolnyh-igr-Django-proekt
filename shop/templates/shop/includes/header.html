@@ -1,10 +1,8 @@
-<header class="header">
-  <div class="container header-inner">
-    <a class="brand" href="{% url 'shop:home' %}"><span class="brand-icon" aria-hidden="true">⚄</span><span>ход за ходом<span class="brand-sub">магазин настольных игр</span></span></a>
-    <nav aria-label="Основная навигация">
-      <a href="{% url 'shop:home' %}" {% if page == 'home' %}class="active" aria-current="page"{% endif %}>Главная</a>
-      <a href="{% url 'shop:catalog' %}" {% if page == 'catalog' %}class="active" aria-current="page"{% endif %}>Каталог</a>
-      <a href="{% url 'shop:about' %}" {% if page == 'about' %}class="active" aria-current="page"{% endif %}>О нас</a>
+<header>
+    <p class="logo">Ход за ходом</p>
+    <nav aria-label="Навигация">
+        <a href="{% url 'shop:home' %}">Главная</a>
+        <a href="{% url 'shop:catalog' %}">Каталог</a>
+        <a href="{% url 'shop:about' %}">О нас</a>
     </nav>
-  </div>
 </header>
