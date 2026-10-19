@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ход за ходом — учебный интернет-магазин настольных игр для семьи и друзей.">
+  <title>{% block title %}Ход за ходом{% endblock %} | Настольные игры</title>
+  <link rel="stylesheet" href="{% static 'shop/css/styles.css' %}">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+{% include 'shop/includes/header.html' %}
+<main id="main">{% block content %}{% endblock %}</main>
+{% include 'shop/includes/footer.html' %}
+</body>
+</html>

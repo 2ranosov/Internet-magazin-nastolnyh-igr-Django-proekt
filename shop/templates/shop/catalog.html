@@ -1,0 +1,6 @@
+{% extends 'shop/base.html' %}
+{% block title %}Каталог{% endblock %}
+{% block content %}
+<section class="container page-intro"><p class="eyebrow">ВЫБИРАЙТЕ СВОЮ СЛЕДУЮЩУЮ ИСТОРИЮ</p><h1>Каталог игр<span class="heading-dot">.</span></h1><p class="lead">От быстрой партии до большого приключения —<br>у каждого вечера есть своя игра.</p></section>
+<section class="container catalog-section" aria-label="Товары"><div class="catalog-bar"><h2>Все настольные игры</h2><span>{{ games|length }} игр в коллекции</span></div><div class="game-grid">{% for game in games %}{% include 'shop/includes/card.html' %}{% endfor %}</div><p class="catalog-note">Это учебная витрина. Названия, характеристики и цены приведены для демонстрации; оформление заказа не предусмотрено.</p></section>
+{% endblock %}
